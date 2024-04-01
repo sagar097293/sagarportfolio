@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poopins", sans-serif;
+      }
+      body {
+        background: lightblue;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .container {
+        position: relative;
+        width: 100%;
+        max-width: 1000px;
+        min-height: 1000px;
+        background: #fff;
+        margin: 50px;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        box-shadow: 0 35px 55px rgba(0, 0, 0, 0.2);
+      }
+
+      .container .left_Side {
+        position: relative;
+        background: #003147;
+        padding: 40px;
+      }
+      .porfileText {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .porfileText .imgBx {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      .porfileText .imgBx img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .porfileText h2 {
+        color: #fff;
+        font-size: 1.5em;
+        margin-top: 20px;
+        text-align: center;
+        font-weight: 600;
+        line-height: 1.4em;
+      }
+      .porfileText h2 span {
+        font-size: 0.8em;
+        font-weight: 300;
+      }
+      .contactInfo {
+        padding-top: 40px;
+      }
+      .title {
+        color: #fff;
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+      }
+      .contactInfo ul {
+        position: relative;
+      }
+      .contactInfo ul li {
+        position: relative;
+        list-style: none;
+        margin: 10px 0;
+        cursor: pointer;
+      }
+      .contactInfo ul li .icon {
+        display: inline-block;
+        width: 30px;
+        font-size: 18px;
+        color: #03a9f4;
+      }
+      .contactInfo ul li span {
+        color: #fff;
+        font-weight: 300;
+      }
+      .contactInfo.education li {
+        margin-bottom: 15px;
+      }
+      .contactInfo.education h5 {
+        color: #03a9f4;
+        font-weight: 400;
+      }
+      .contactInfo.education h4:nth-child(2) {
+        color: #fff;
+        font-weight: 400;
+      }
+      .contactInfo.education h4 {
+        color: #fff;
+        font-weight: 300;
+      }
+
+      .contactInfo.language .percent {
+        position: relative;
+        width: 100%;
+        height: 6px;
+        background: #081921;
+        display: block;
+        margin-top: 5px;
+      }
+      .contactInfo.language .percent div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: #03a9f4;
+      }
+
+      .container .right_Side {
+        position: relative;
+        background: #fff;
+        padding: 40px;
+      }
+
+      .about {
+        margin-bottom: 50px;
+      }
+      .about:last-child {
+        margin-bottom: 0;
+      }
+      .title2 {
+        color: #003147;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+      }
+      P {
+        color: #333;
+      }
+      .about .box {
+        display: flex;
+        flex-direction: row;
+        margin: 20px 0;
+      }
+
+      .about .box .year_company {
+        min-width: 150px;
+      }
+      .about .box .year_company h5 {
+        color: #848c90;
+        font-weight: 600;
+      }
+
+      .about .box .text h4 {
+        color: #2a7da2;
+        font-size: 16px;
+      }
+
+      .skills .box {
+        position: relative;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .skills .box h4 {
+        color: #848c99;
+        font-weight: 600;
+      }
+      .skills .box .percent {
+        position: relative;
+        width: 100%;
+        height: 10px;
+        background: #f0f0f0;
+      }
+      .skills .box .percent div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: #03a9f4;
+      }
+      .interest ul {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+      }
+      .interest ul li {
+        list-style: none;
+        color: #f0eeee;
+        font-weight: 400;
+        margin: 10px 0;
+      }
+      .interest ul li .fa {
+        color: #03a9f4;
+        font-size: 18px;
+        width: 20px;
+      }
+      .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #03a9f4;
+        color: #fff;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .btn:hover {
+        background-color: #0288d1;
+      }
+      .button-container {
+        justify-content: space-between;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+
+      @media (max-width: 1000px) {
+        .container {
+          margin: 10px;
+          grid-template-columns: repeat(1, 1fr);
+        }
+        .interest ul {
+          margin: 10px;
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .about .box {
+          flex-direction: column;
+        }
+        .about .box .year_company {
+          margin-bottom: 5px;
+        }
+        .interest ul {
+          grid-template-columns: repeat(1, 1fr);
+        }
+        .skills .box {
+          grid-template-columns: repeat(1, 1fr);
+        }
+        .button-container {
+          flex-direction: column;
+          align-items: center;
+        }
+        .btn {
+          margin-top: 10px;
+        }
+        .container {
+          margin: 10px;
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="button-container">
+      <button class="btn" onclick="goBack()">Back</button>
+      <button class="btn" onclick="downloadResume()">Download Resume</button>
+    </div>
+    <div class="container">
+      <div class="left_Side">
+        <div class="porfileText">
+          <h2>SAGAR RABARI<br /><span>Fullstack Web Developer</span></h2>
+        </div>
+        <div class="contactInfo">
+          <h3 class="title">Contact Info</h3>
+          <ul>
+            <li>
+              <span class="icon"
+                ><i class="fa fa-phone" aria-hidden="true"></i
+              ></span>
+              <span class="text">+91 9328233047</span>
+            </li>
+            <li>
+              <span class="icon"
+                ><i class="fa fa-envelope-o" aria-hidden="true"></i
+              ></span>
+              <span class="text">rabarisagar825@gmail.com</span>
+            </li>
+              <span class="text">Rajpipla, Gujrat, India 393150</span>
+            </li>
+          </ul>
+        </div>
+        <div class="contactInfo education">
+          <h3 class="title">Education</h3>
+          <ul>
+            <li>
+              <h5>2019 - 2022</h5>
+              <h4>mechenical engineering</h4>
+              <h4>k.j polytechnic, Bharuch</h4>
+            </li>
+            <li>
+              <h5>2018</h5>
+              <h4>10th</h4>
+              <h4>Shaherav Public School, Nandod, Narmada</h4>
+            </li>
+          </ul>
+        </div>
+        <div class="contactInfo language">
+          <h3 class="title">Languages</h3>
+          <ul>
+            <li>
+              <span class="text">English</span>
+              <span class="percent">
+                <div style="width: 85%"></div>
+              </span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <span class="text">Hindi</span>
+              <span class="percent"><div style="width: 90%"></div></span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <span class="text">Gujrati</span>
+              <span class="percent"><div style="width: 100%"></div></span>
+            </li>
+          </ul>
+
+        </div>
+        <br />
+        <br />
+        <div class="about interest">
+          <h2 class="title">Interest</h2>
+          <ul>
+            <li><i class="fa fa-gamepad" aria-hidden="true"></i>Gaming</li>
+            <li><i class="fa fa-book" aria-hidden="true"></i>Reading</li>
+            <li><i class="fa fa-cutlery" aria-hidden="true"></i>Cooking</li>
+            <li><i class="fa fa-code" aria-hidden="true"></i>Coding</li>
+          </ul>
+        </div>
+      </div>
+      <div class="right_Side">
+        <div class="about">
+          <h2 class="title2">About</h2>
+          <p>
+            I am currently pursuing a diploma in mechenical engineering and have a
+            strong interest in writing, coding, and decision-making. I am
+            passionate about technology and always eager to learn new skills and
+            technologies.
+          </p>
+        </div>
+        <div class="about">
+          <h2 class="title2">Projects</h2>
+          <div class="box">
+            <div class="year_company">
+              <h5>Weather App</h5>
+              
+            </div>
+            <div class="text">
+              <h4>Description</h4>
+              <p>
+                It is a weather app, created using React, offers a modern and
+                dynamic platform for delivering the latest weather location and information.
+                including desktops, tablets, and mobile phones.
+              </p>
+            </div>
+          </div>
+          
+        <div class="about skills">
+          <h2 class="title2">Professional Skills</h2>
+          <div class="box">
+            <h4>C</h4>
+            <div class="percent">
+              <div style="width: 60%"></div>
+            </div>
+          </div>
+          <div class="box">
+            <h4>C++</h4>
+            <div class="percent">
+              <div style="width: 55%"></div>
+            </div>
+          </div>
+          <div class="box">
+            <h4>JQuery</h4>
+            <div class="percent">
+              <div style="width: 90%"></div>
+            </div>
+          </div>
+          <div >
+          
+
+          </div>
+          <div class="box">
+            <h4>Html</h4>
+            <div class="percent">
+              <div style="width: 90%"></div>
+            </div>
+          </div>
+          <div class="box">
+            <h4>css</h4>
+            <div class="percent"><div style="width: 85%"></div></div>
+          </div>
+          <div class="box">
+            <h4>JavaScript</h4>
+            <div class="percent"><div style="width: 87%"></div></div>
+          </div>
+          <div class="box">
+            <h4>React js</h4>
+            <div class="percent"><div style="width: 94%"></div></div>
+          </div>
+          <div class="box">
+            <h4>Node js</h4>
+            <div class="percent"><div style="width: 90%"></div></div>
+          </div>
+          <div class="box">
+            <h4>MongoDb</h4>
+            <div class="percent"><div style="width: 90%"></div></div>
+          </div>
+          
+          <div class="box">
+            <h4>Bootstrap</h4>
+            <div class="percent"><div style="width: 75%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+      
+    </script>
+  </body>
+</html>
